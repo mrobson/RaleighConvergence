@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: chat-client-android
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      labels:
+        app: chat-client
+        version: android
+    spec:
+      containers:
+      - image: docker.io/mrobson/chat-client:android
+        imagePullPolicy: Always
+        name: chat-client
+        ports:
+        - containerPort: 4200
+
