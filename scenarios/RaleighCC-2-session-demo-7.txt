@@ -1,6 +1,6 @@
 #7 Service resilience - Timeout
 
-time curl http://chat-server.apps.rducc.openshiftworkshop.com/login?id=tst
+time curl http://chat-server.apps.rducc-647f.openshiftworkshop.com/login?id=tst
 {"chat_members":["abc","tst"],"status":"OK"}
 real	0m0.225s
 user	0m0.007s
@@ -12,7 +12,7 @@ curl http://localhost:8080/longtask
 exit
 
 
-time curl http://chat-server.apps.rducc.openshiftworkshop.com/login?id=test
+time curl http://chat-server.apps.rducc-647f.openshiftworkshop.com/login?id=test
 {"chat_members":["abc","tst","test1"],"status":"OK"}
 real	0m5.293s
 user	0m0.006s
@@ -22,7 +22,7 @@ sys	0m0.005s
 ## Create timeout policy
 oc apply -n chat -f scripts/istio/7-0.vs-initial-auth-timeout.yaml
 
- for i in {10..100}; do time curl http://chat-server.apps.rducc.openshiftworkshop.com/login?id=test${i}; done
+ for i in {10..100}; do time curl http://chat-server.apps.rducc-647f.openshiftworkshop.com/login?id=test${i}; done
 upstream request timeout
 real	0m1.211s
 user	0m0.006s
@@ -40,7 +40,7 @@ exit
 ===========>Skip<================
 #8  Service resilience - Retry + Fault Inject
 
-http://chat-client.apps.rducc.openshiftworkshop.com/emulate
+http://chat-client.apps.rducc-647f.openshiftworkshop.com/emulate
 oc apply -f  scripts/istio/8-0.vs-auth-fault-503.yaml
 
 oc delete virtualservice auth-fault

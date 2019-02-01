@@ -2,15 +2,15 @@
 #9 Service resilience - Circuit Breaker
 
 
-siege -r 2 -c 20 http://chat-server.apps.rducc.openshiftworkshop.com/emulate?id=abc
+siege -r 2 -c 20 http://chat-server.apps.rducc-647f.openshiftworkshop.com/emulate?id=abc
 
 oc apply -f scripts/istio/9-0.destinationRule-auth-cb-policy-max-connection.yaml
 
-siege -r 2 -c 20 http://chat-server.apps.rducc.openshiftworkshop.com/emulate?id=abc
+siege -r 2 -c 20 http://chat-server.apps.rducc-647f.openshiftworkshop.com/emulate?id=abc
 
 oc apply -f scripts/istio/9-1.destinationRule-auth-cb-policy-pending.yaml
 
-siege -r 2 -c 20 http://chat-server.apps.rducc.openshiftworkshop.com/emulate?id=abc
+siege -r 2 -c 20 http://chat-server.apps.rducc-647f.openshiftworkshop.com/emulate?id=abc
 
 
 ## Clean

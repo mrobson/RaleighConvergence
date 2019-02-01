@@ -13,7 +13,7 @@ oc apply -n chat -f scripts/istio/4-0.destinationRule-chat-server-v1-v2-roundrob
 oc apply -n chat -f scripts/istio/4-1.vs-server-v1-v2-50-50.yaml 
 
 
-while true; do curl http://chat-server.apps.rducc.openshiftworkshop.com/get_server_version;echo "";sleep 1 ; done
+while true; do curl http://chat-server.apps.rducc-647f.openshiftworkshop.com/get_server_version;echo "";sleep 1 ; done
 
 oc apply -n chat -f scripts/istio/4-2.vs-server-v1-v2-10-90.yaml
 oc apply -n chat -f scripts/istio/4-3.vs-server-v1-v2-0-100.yaml
@@ -35,11 +35,11 @@ oc get pod -l app=chat-server,version=v2
 
 
 
-while true; do curl http://chat-server.apps.rducc.openshiftworkshop.com/get_server_version;echo "";sleep 1 ; done
+while true; do curl http://chat-server.apps.rducc-647f.openshiftworkshop.com/get_server_version;echo "";sleep 1 ; done
 
 ## change rule to RANDOM
 oc apply -f  scripts/istio/5-1.destinationRule-chat-server-v1-v2-random.yaml
-while true; do curl http://chat-server.apps.rducc.openshiftworkshop.com/get_server_version;echo "";sleep 1 ; done
+while true; do curl http://chat-server.apps.rducc-647f.openshiftworkshop.com/get_server_version;echo "";sleep 1 ; done
 
 ## Clean up
 oc scale -n chat deployment chat-server-v2 --replicas=1
@@ -48,7 +48,7 @@ oc apply -n chat -f scripts/istio/4-3.vs-server-v1-v2-0-100.yaml
 
 
 #6 Service resilience - Pool Ejection (Scale Out Api-server and misbehave)
-http://chat-client.apps.rducc.openshiftworkshop.com/emulate
+http://chat-client.apps.rducc-647f.openshiftworkshop.com/emulate
 oc scale -n chat deployment auth-v1 --replicas=2
 oc get pod -l app=auth
 
@@ -56,7 +56,7 @@ oc rsh $(oc get pod|grep auth|head -n 1|awk '{print $1}')
 curl localhost:8080/misbehave
 exit
 
-http://chat-client.apps.rducc.openshiftworkshop.com/emulate
+http://chat-client.apps.rducc-647f.openshiftworkshop.com/emulate
 oc apply -n chat -f scripts/istio/6-0.destinationRule-auth-cb-policy-pool-eject.yaml
 
 ## Clean 

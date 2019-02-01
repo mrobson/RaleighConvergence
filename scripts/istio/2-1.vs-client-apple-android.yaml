@@ -7,7 +7,7 @@ spec:
   gateways:
   - chat-gateway
   hosts:
-  - chat-client.apps.rducc.openshiftworkshop.com
+  - chat-client.apps.rducc-647f.openshiftworkshop.com
   http:
   - match:
      - headers:

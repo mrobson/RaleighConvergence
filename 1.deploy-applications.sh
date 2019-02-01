@@ -20,8 +20,8 @@ oc apply -n chat -f <(istioctl kube-inject -f scripts/applications/deployment/ch
 oc apply -n chat -f <(istioctl kube-inject -f scripts/applications/deployment/auth.yaml)
 
 ## Ingress
-oc expose  svc istio-ingressgateway --name chat-client-ingress --hostname="chat-client.apps.rducc.openshiftworkshop.com" -n istio-system
-oc expose  svc istio-ingressgateway --name chat-server-ingress --hostname="chat-server.apps.rducc.openshiftworkshop.com" -n istio-system
+oc expose  svc istio-ingressgateway --name chat-client-ingress --hostname="chat-client.apps.rducc-647f.openshiftworkshop.com" -n istio-system
+oc expose  svc istio-ingressgateway --name chat-server-ingress --hostname="chat-server.apps.rducc-647f.openshiftworkshop.com" -n istio-system
 
 ## istio 
 ### Access chat-client v1 only

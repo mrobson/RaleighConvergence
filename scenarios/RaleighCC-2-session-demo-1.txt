@@ -1,6 +1,6 @@
 
 # Begin~~!!!
-oc login https://master.rducc.openshiftworkshop.com:443 --token=oRiwy6MX6ICVmo6hajEwN5Fr3_e7VUz4TrbChhd2owE  
+oc login https://master.rducc-647f.openshiftworkshop.com:443 --token=oRiwy6MX6ICVmo6hajEwN5Fr3_e7VUz4TrbChhd2owE  
 
 ##ISTIO
 curl -L https://github.com/istio/istio/releases/download/1.0.0/istio-1.0.0-linux.tar.gz | tar xz
@@ -48,8 +48,8 @@ oc apply -n chat -f <(istioctl kube-inject -f scripts/applications/deployment/ch
 oc apply -n chat -f <(istioctl kube-inject -f scripts/applications/deployment/auth.yaml)
 
 ## Ingress
-oc expose  svc istio-ingressgateway --name chat-client-ingress --hostname="chat-client.apps.rducc.openshiftworkshop.com" -n istio-system
-oc expose  svc istio-ingressgateway --name chat-server-ingress --hostname="chat-server.apps.rducc.openshiftworkshop.com" -n istio-system
+oc expose  svc istio-ingressgateway --name chat-client-ingress --hostname="chat-client.apps.rducc-647f.openshiftworkshop.com" -n istio-system
+oc expose  svc istio-ingressgateway --name chat-server-ingress --hostname="chat-server.apps.rducc-647f.openshiftworkshop.com" -n istio-system
 
 ## istio 
 ### Access chat-client v1 only
@@ -58,5 +58,5 @@ oc apply -n chat -f scripts/istio/1-1.vs-client-server.yaml
 oc apply -n chat -f scripts/istio/1-2.destinationRule-chat-client.yaml 
 
 
-chat-client.apps.rducc.openshiftworkshop.com
+chat-client.apps.rducc-647f.openshiftworkshop.com
 
