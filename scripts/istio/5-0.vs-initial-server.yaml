@@ -13,3 +13,4 @@ spec:
         host: chat-server
         subset: all
       weight: 100
+    websocketUpgrade: true

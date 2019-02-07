@@ -15,6 +15,7 @@ spec:
     - destination:
         host: chat-server
         subset: v1
+    websocketUpgrade: true
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -33,3 +34,4 @@ spec:
     - destination:
         host: chat-client
         subset: v1
+    websocketUpgrade: true

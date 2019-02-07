@@ -8,4 +8,4 @@ spec:
     outlierDetection:
       consecutiveErrors: 1
       interval: 5s
-      baseEjectionTime: 20s
+      baseEjectionTime: 10s

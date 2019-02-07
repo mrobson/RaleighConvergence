@@ -13,7 +13,9 @@ spec:
         host: chat-server
         subset: v1
       weight: 0
+    websocketUpgrade: true
     - destination:
         host: chat-server
         subset: v2
       weight: 100
+    websocketUpgrade: true
